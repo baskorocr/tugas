@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,7 +68,7 @@ namespace ProjectPenjualan
             string tanggal, nama;
             char jenis;
             double total;
-            
+
             Console.Write("Nota: ");
             nota = int.Parse(Console.ReadLine());
             Console.Write("tanggal: ");
@@ -91,20 +91,32 @@ namespace ProjectPenjualan
             Console.Clear();
 
             // PERINTAH: lengkapi kode untuk menghapus penjualan dari dalam collection
+            bool ketemu = false;
             int hapus;
             int x = 0;
+ 
             Console.WriteLine("Hapus Data Penjualan");
             Console.WriteLine("");
             Console.Write("Nota: ");
             hapus = int.Parse(Console.ReadLine());
-            foreach(Penjualan penjual in daftarPenjualan)
+            foreach (Penjualan penjual in daftarPenjualan)
             {
-                if(hapus==penjual.Nota)
+                if (hapus == penjual.Nota)
                 {
-                    daftarPenjualan.RemoveAt(x);
+                    ketemu = true;
                     break;
                 }
                 x++;
+            }
+            if(ketemu)
+            {
+                daftarPenjualan.RemoveAt(x);
+                Console.WriteLine("Data Berhasil dihapus");
+               
+            }
+            else
+            {
+                Console.WriteLine("Data tidak ditemukan");
             }
             Console.WriteLine("\nTekan ENTER untuk kembali ke menu");
             Console.ReadKey();
@@ -119,14 +131,14 @@ namespace ProjectPenjualan
             Console.WriteLine("Data Penjualan");
             Console.WriteLine("");
 
-            foreach(Penjualan penjualan in daftarPenjualan)
+            foreach (Penjualan penjualan in daftarPenjualan)
             {
-                if(penjualan.Jenis=='T' || penjualan.Jenis=='t')
+                if (penjualan.Jenis == 'T' || penjualan.Jenis == 't')
                 {
-                    Console.WriteLine("{0}, {1}, {2}, {3}, Tunai, {4}",no,penjualan.Nota,penjualan.Tanggal,penjualan.Nama,penjualan.Total);
+                    Console.WriteLine("{0}, {1}, {2}, {3}, Tunai, {4}", no, penjualan.Nota, penjualan.Tanggal, penjualan.Nama, penjualan.Total);
                 }
 
-                else if(penjualan.Jenis=='K' || penjualan.Jenis=='k')
+                else if (penjualan.Jenis == 'K' || penjualan.Jenis == 'k')
                 {
                     Console.WriteLine("{0}, {1}, {2}, {3}, Kredit, {4}", no, penjualan.Nota, penjualan.Tanggal, penjualan.Nama, penjualan.Total);
                 }
