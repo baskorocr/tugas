@@ -12,7 +12,7 @@ namespace ProjectPenjualan
 
         static void Main(string[] args)
         {
-            Console.Title = "Responsi UAS Matakuliah Pemrograman";
+            Console.Title = "Responsi UAS Matakuliah Pemrograman 2900";
 
             while (true)
             {
